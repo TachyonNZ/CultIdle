@@ -1,0 +1,195 @@
+body {
+    
+    font-family: "Roboto Condensed";
+	margin: 0px;
+	padding: 0px;
+    
+}
+
+.header {
+	
+	position: absolute;
+	left: 0px;
+	height: 26px;
+	background-color: #200020;
+	border-bottom: 1px solid gold;
+	width: 100%;
+	
+	
+}
+
+#game-title {
+	
+	padding-left: 10px;
+	padding-top: 3px;
+	color: white;
+	
+}
+
+
+#frame {
+	
+	position: absolute;
+	bottom: 0;
+	top: 27px;
+	height: auto;
+	background-color: #200020;
+	display: flex;
+	margin: 0 auto;
+	width: 100%;
+	padding-top: 10px;
+	justify-content: center;
+	overflow: auto;
+	white-space: nowrap;
+
+	
+}
+
+.panel {
+	
+	vertical-align: top;
+	height: 200px;
+	flex: 1;
+	padding: 20px;
+	display:flex;
+	
+}
+
+.right-panel table tbody tr td{
+	
+	color: white;
+	
+}
+
+.column{
+	
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
+.centre-panel {
+	
+	border: 1px outset gold;
+	background-color: #300030;
+}
+
+.hidden{
+	
+	visibility: hidden;
+	
+}
+
+#devotion-counter{
+	
+	
+	margin: -21px;
+	margin-right: 0px;
+	border: 3px double gold;
+	width: 20px;
+	display: flex;
+	flex-direction: column-reverse;
+	flex-align: flex-end;
+	
+}
+
+.button {
+	
+	border: 1px solid gold;
+	border-bottom:3px solid gold;
+	height: 20px;
+	width: 100%;
+	vertical-align: bottom;
+	text-align: center;
+	padding: 10px;
+	color: white;
+	margin-bottom: 30px;
+	margin-top: -20px;
+	
+}
+.button:hover {
+	
+	border: 1px solid gold;
+	border-bottom:3px solid goldenrod;
+	background-color: #200020;
+	height: 20px;
+	width: 100%;
+	vertical-align: bottom;
+	text-align: center;
+	padding: 10px;
+	
+}
+
+.devotionPip {
+    
+    z-index: 20;
+    height: 10px;
+    
+    margin: 0px;
+    background-color: white;
+    width: 100%;
+}
+
+.slideIn {
+    
+  animation-name: slideIn;
+  animation-duration: 0.8s;
+  animation-timing-function: linear;
+
+}
+
+.fadeIn {
+    
+  animation-name: fadeIn;
+  animation-duration: 0.8s;
+  animation-timing-function: ease;
+
+}
+
+.slideOut {
+    
+  animation-name: slideIn;
+  animation-duration: 2.0s;
+  animation-timing-function: linear;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    width:0%;
+  }
+
+  to {
+    opacity: 1;
+    width:100%;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    height: 0px;
+  }
+
+  to {
+    height: 10px;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    height: 10px;
+  }
+
+  to {
+    height: 0px;
+  }
+}
