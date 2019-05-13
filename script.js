@@ -4,16 +4,9 @@ var productExponentialRate = 50;
 var timer = setInterval(main, 30);
 var timer2 = setInterval(retractDevotion, 1000);
 
-var devotionAmt = new Decimal(0.0);
-var devotionAdd = new Decimal(0.0);
 var maxdevotions = 24;
-// -----------------------
 
-metrics = {
-    
-    devotion : {amount: devotionAmt, baseCost: 0, clickValue: 1, fps: 0, mult: 1, idle: 0}
-	
-}
+
 
 // -----------------------
 
@@ -79,9 +72,8 @@ function round(labelValue, decimals=3, fixedTo=3){
 
 
 function main() {	
-
 	metrics.devotion.amount =  metrics.devotion.amount.add((devotionAdd / 500) * metrics.devotion.mult)
-	document.getElementById("tracker-devotion").innerHTML = round(metrics.devotion.amount);
-	colourLabels();
+	//document.getElementById("tracker-devotion").innerHTML = round(metrics.devotion.amount);
+	//colourLabels();
 	
 }
