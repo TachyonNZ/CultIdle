@@ -2,16 +2,16 @@ var exponentialRate = 15; //Higher is less extreme increase in price
 var productExponentialRate = 50;
 
 var timer = setInterval(main, 30);
-var timer2 = setInterval(retractDevotion, 2000);
+var timer2 = setInterval(retractDevotion, 1000);
 
-var devotion = new Decimal(0.0);
+var devotionAmt = new Decimal(0.0);
 var devotionAdd = new Decimal(0.0);
 var maxdevotions = 24;
 // -----------------------
 
 metrics = {
     
-    devotion : {amount: 0, baseCost: 0, clickValue: 1, fps: 0, mult: 1, idle: 0}
+    devotion : {amount: devotionAmt, baseCost: 0, clickValue: 1, fps: 0, mult: 1, idle: 0}
 	
 }
 
@@ -24,7 +24,7 @@ function Devote(){
     if (devotionAdd < maxdevotions){
         
         devotionAdd = devotionAdd.add(metrics.devotion.clickValue);
-        
+        metrics.devotion.amount =  metrics.devotion.amount.add(1)
         
         
         for(i = 0; i <= devotionAdd; i++){
@@ -56,7 +56,7 @@ function retractDevotion(){
         counter.classList.add('slideOut');
         counter.style.webkitAnimationName = 'slideOut';
                
-        setTimeout(killChild, 1900);       
+        setTimeout(killChild, 900);       
 
     }
     
@@ -80,7 +80,8 @@ function round(labelValue, decimals=3, fixedTo=3){
 
 function main() {	
 
-	metrics.devotion.amount += (devotionAdd / 800) * metrics.devotion.mult
+	metrics.devotion.amount =  metrics.devotion.amount.add((devotionAdd / 500) * metrics.devotion.mult)
 	document.getElementById("tracker-devotion").innerHTML = round(metrics.devotion.amount);
+	colourLabels();
 	
 }
