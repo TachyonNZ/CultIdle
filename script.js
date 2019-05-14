@@ -107,7 +107,11 @@ function main() {
 
     for (res in resourceMapping){
         try { //sorry
-            res.amount += (resourceMapping[res].fps * resourceMapping[res].mult);
+            resourceMapping[res].amount += (resourceMapping[res].fps * resourceMapping[res].mult);
+            try {
+                resourceMapping[resourceMapping[res].creates].amount += (resourceMapping[res].amount * resourceMapping[res].perTick * resourceMapping[res].perTickMult);
+                console.log(res)
+            }catch{}
             document.getElementById("tracker-"+resourceMapping[res].name.toLowerCase()).innerHTML = round(resourceMapping[res].amount);
         }
         catch {}

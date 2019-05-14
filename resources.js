@@ -34,6 +34,9 @@ var resourceMapping = {
         baseCost : 5,
         costResource: "doctrine",
         clickValue: 1,
+        creates: "devotion",
+        perTick: 0.1,
+        perTickMult: 1,
         fps: 0,
         mult: 1,
         idle: 0
