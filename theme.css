@@ -26,7 +26,6 @@ body {
 	
 }
 
-
 #frame {
 	
 	position: absolute;
@@ -50,7 +49,28 @@ body {
 	vertical-align: top;
 	height: 200px;
 	flex: 1;
+	display:flex;
+	
+}
+
+
+.pad {
+
 	padding: 20px;
+	
+}
+
+.fullwidth {
+	
+	margin-right: -22px;
+	
+}
+
+
+.flexarea {
+	
+	vertical-align: top;
+	flex: 1;
 	display:flex;
 	
 }
@@ -58,12 +78,18 @@ body {
 .right-panel table tbody tr td{
 	
 	color: white;
+	width:100px;
 	
 }
 
 .column{
 	
 	flex-direction: column;
+	flex-wrap: nowrap;
+}
+.row{
+	
+	flex-direction: row;
 	flex-wrap: nowrap;
 }
 
@@ -75,7 +101,7 @@ body {
 
 .hidden{
 	
-	visibility: hidden;
+	display: none;
 	
 }
 
@@ -88,11 +114,12 @@ body {
 	width: 20px;
 	display: flex;
 	flex-direction: column-reverse;
-	flex-align: flex-end;
+	justify-content: flex-start;
+	align-items: flex-end;
 	
 }
 
-.button {
+.button-main {
 	
 	border: 1px solid gold;
 	border-bottom:3px solid gold;
@@ -106,34 +133,48 @@ body {
 	margin-top: -20px;
 	
 }
-.button:hover {
+
+.button-main:hover {
+	
+	background-color: #200020;	
+	
+}
+
+.button {
 	
 	border: 1px solid gold;
-	border-bottom:3px solid goldenrod;
-	background-color: #200020;
+	border-bottom:3px solid gold;
 	height: 20px;
-	width: 100%;
+	width: 90%;
 	vertical-align: bottom;
 	text-align: center;
 	padding: 10px;
+	color: white;
+	margin-bottom: 30px;
+	margin-top: -20px;
+	flex: 1;
 	
+}
+.button:hover {
+	background-color: #200020;	
 }
 
 .devotionPip {
     
     z-index: 20;
     height: 10px;
-    
+    align-self: right;
     margin: 0px;
-    background-color: white;
+    background-color: gold;
     width: 100%;
+	
 }
 
 .slideIn {
     
   animation-name: slideIn;
   animation-duration: 0.8s;
-  animation-timing-function: linear;
+  animation-timing-function: ease;
 
 }
 
@@ -148,7 +189,7 @@ body {
 .slideOut {
     
   animation-name: slideIn;
-  animation-duration: 2.0s;
+  animation-duration: 1.0s;
   animation-timing-function: linear;
 }
 
@@ -177,19 +218,28 @@ body {
 @keyframes slideIn {
   from {
     height: 0px;
+
+	background-color: purple;
   }
 
   to {
     height: 10px;
+
+	background-color: gold ;
   }
 }
 
 @keyframes slideOut {
   from {
     height: 10px;
+    width: 20px;
   }
 
   to {
     height: 0px;
+    width: 20px;
+	
+
   }
 }
+

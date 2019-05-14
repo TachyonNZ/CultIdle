@@ -2,18 +2,11 @@ var exponentialRate = 15; //Higher is less extreme increase in price
 var productExponentialRate = 50;
 
 var timer = setInterval(main, 30);
-var timer2 = setInterval(retractDevotion, 2000);
+var timer2 = setInterval(retractDevotion, 1000);
 
-var devotion = new Decimal(0.0);
-var devotionAdd = new Decimal(0.0);
 var maxdevotions = 24;
-// -----------------------
 
-metrics = {
-    
-    devotion : {amount: 0, baseCost: 0, clickValue: 1, fps: 0, mult: 1, idle: 0}
-	
-}
+
 
 // -----------------------
 
@@ -21,15 +14,17 @@ function Devote(){
     
     devotionCounter = document.getElementById('devotion-counter');
 
+    resourceMapping.devotion.amount += 1
+    
     if (devotionAdd < maxdevotions){
         
-        devotionAdd = devotionAdd.add(metrics.devotion.clickValue);
+        devotionAdd += resourceMapping.devotion.clickValue;
         
         
         
         for(i = 0; i <= devotionAdd; i++){
             if (i == devotionAdd){
-                for(k = 0; k < metrics.devotion.clickValue; k++)
+                for(k = 0; k < resourceMapping.devotion.clickValue; k++)
                 {
                     var counter = document.createElement('div');
                     
@@ -56,7 +51,7 @@ function retractDevotion(){
         counter.classList.add('slideOut');
         counter.style.webkitAnimationName = 'slideOut';
                
-        setTimeout(killChild, 1900);       
+        setTimeout(killChild, 900);       
 
     }
     
@@ -64,7 +59,7 @@ function retractDevotion(){
 
 function killChild(){
     
-    devotionAdd = devotionAdd.subtract(1)
+    devotionAdd -= 1
     devotionCounter.removeChild(counter)
     
 }
@@ -77,10 +72,53 @@ function round(labelValue, decimals=3, fixedTo=3){
    
 }
 
+function addResource(resource,amount=1,fixed=true){
+    
+    if (fixed){
+        if (figureFixedCost(resourceMapping[resource].baseCost,resourceMapping[resource],resourceMapping[resource].costResource,amount)){
+            resourceMapping[resourceMapping[resource].costResource].amount -= resourceMapping[resource].baseCost;
+            resourceMapping[resource].amount += amount;
+        
+        }  
+    }    
+    
+}
+
+
+function figureFixedCost(cost,resource,req,amount=1){
+    
+    var totalCost = cost * amount
+    if (resourceMapping[resource.costResource].amount >= resource.baseCost){
+        return true;
+    }
+    return false;
+    
+}
+
+for (r in resourceMapping){	
+        colourLabels(resourceMapping[r]);	
+    }
 
 function main() {	
 
-	metrics.devotion.amount += (devotionAdd / 800) * metrics.devotion.mult
-	document.getElementById("tracker-devotion").innerHTML = round(metrics.devotion.amount);
+    resourceMapping.devotion.amount += ((devotionAdd / 200) * resourceMapping.devotion.mult)
+    document.getElementById("tracker-devotion").innerHTML = round(resourceMapping.devotion.amount);
+
+
+    for (res in resourceMapping){
+        try { //sorry
+            resourceMapping[res].amount += (resourceMapping[res].fps * resourceMapping[res].mult);
+            try {
+                resourceMapping[resourceMapping[res].creates].amount += (resourceMapping[res].amount * resourceMapping[res].perTick * resourceMapping[res].perTickMult);
+                console.log(res)
+            }catch{}
+            document.getElementById("tracker-"+resourceMapping[res].name.toLowerCase()).innerHTML = round(resourceMapping[res].amount);
+        }
+        catch {}
+    }
+
+    searchAchieves();
+	
+	
 	
 }
