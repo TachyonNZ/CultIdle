@@ -16,15 +16,15 @@
 		</div>
 
 		<div id="frame" class="noselect">
-			<div class="left-panel panel hidden">
+			<div class="left-panel panel pad">
 			</div>
 			<div class="centre-panel panel pad">
 				<div id="devotion-counter"></div>
 				<div class="flexarea pad column">
 					<div class="button-main noselect" onClick="Devote()">Devote</div>
 					<div class="flexarea row fullwidth" id="worker-area">
-						<div class="button noselect" onClick="AddResource(doctrine)">Write Doctrine: 100 Devotion</div>
-						<div class="button noselect" onClick="AddResource(follower)">Preach: 10 Doctrine</div>
+						<div class="button noselect" onClick="addResource('doctrine')">Write Doctrine: 100 Devotion</div>
+						<div class="button noselect" onClick="addResource('followers')">Preach: 5 Doctrine</div>
 					</div>
 				</div>
 			</div>
@@ -32,19 +32,19 @@
 				<table>
 					<tbody>
 						<tr id="label-devotion">
-						<td>Devotion </td><td id="tracker-devotion">0</td>
+                            <td>Devotion </td><td id="tracker-devotion"></td>
 						</tr>
 						<tr id="label-doctrine" class="hidden">
-						<td>Doctrine </td><td id="tracker-doctrine">0</td>
+                            <td>Doctrine </td><td id="tracker-doctrine"></td>
 						</tr>
 						<tr id="label-followers" class="hidden">
-						<td>Followers </td><td id="tracker-followers">0</td>
+                            <td>Followers </td><td id="tracker-followers"></td>
 						</tr>
 						<tr id="label-prisoners" class="hidden">
-						<td>Prisoners </td><td id="tracker-prisoners">0</td>
+                            <td>Prisoners </td><td id="tracker-prisoners"></td>
 						</tr>
 						<tr id="label-property" class="hidden">
-						<td>Property </td><td id="tracker-property">0</td>
+                            <td>Property </td><td id="tracker-property"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -52,6 +52,9 @@
 		</div>
 	</body>	
 </html>
+
 <script type="text/javascript" src="break_eternity.js"></script>
 <script type="text/javascript" src="resources.js"></script>
+<script type="text/javascript" src="achievements.js"></script>
 <script type="text/javascript" src="script.js"></script>
+

@@ -14,15 +14,17 @@ function Devote(){
     
     devotionCounter = document.getElementById('devotion-counter');
 
+    resourceMapping.devotion.amount += 1
+    
     if (devotionAdd < maxdevotions){
         
-        devotionAdd = devotionAdd.add(metrics.devotion.clickValue);
-        metrics.devotion.amount =  metrics.devotion.amount.add(1)
+        devotionAdd += resourceMapping.devotion.clickValue;
+        
         
         
         for(i = 0; i <= devotionAdd; i++){
             if (i == devotionAdd){
-                for(k = 0; k < metrics.devotion.clickValue; k++)
+                for(k = 0; k < resourceMapping.devotion.clickValue; k++)
                 {
                     var counter = document.createElement('div');
                     
@@ -57,7 +59,7 @@ function retractDevotion(){
 
 function killChild(){
     
-    devotionAdd = devotionAdd.subtract(1)
+    devotionAdd -= 1
     devotionCounter.removeChild(counter)
     
 }
@@ -70,10 +72,49 @@ function round(labelValue, decimals=3, fixedTo=3){
    
 }
 
+function addResource(resource,amount=1,fixed=true){
+    
+    if (fixed){
+        if (figureFixedCost(resourceMapping[resource].baseCost,resourceMapping[resource],resourceMapping[resource].costResource,amount)){
+            resourceMapping[resourceMapping[resource].costResource].amount -= resourceMapping[resource].baseCost;
+            resourceMapping[resource].amount += amount;
+        
+        }  
+    }    
+    
+}
+
+
+function figureFixedCost(cost,resource,req,amount=1){
+    
+    var totalCost = cost * amount
+    if (resourceMapping[resource.costResource].amount >= resource.baseCost){
+        return true;
+    }
+    return false;
+    
+}
+
+for (r in resourceMapping){	
+        colourLabels(resourceMapping[r]);	
+    }
 
 function main() {	
-	metrics.devotion.amount =  metrics.devotion.amount.add((devotionAdd / 500) * metrics.devotion.mult)
-	//document.getElementById("tracker-devotion").innerHTML = round(metrics.devotion.amount);
-	//colourLabels();
+
+    resourceMapping.devotion.amount += ((devotionAdd / 200) * resourceMapping.devotion.mult)
+    document.getElementById("tracker-devotion").innerHTML = round(resourceMapping.devotion.amount);
+
+
+    for (res in resourceMapping){
+        try { //sorry
+            res.amount += (resourceMapping[res].fps * resourceMapping[res].mult);
+            document.getElementById("tracker-"+resourceMapping[res].name.toLowerCase()).innerHTML = round(resourceMapping[res].amount);
+        }
+        catch {}
+    }
+
+    searchAchieves();
+	
+	
 	
 }
