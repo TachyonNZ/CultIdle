@@ -15,7 +15,7 @@ var resourceMapping = {
         fps: 0,
         mult: 1,
         idle: 0,
-        limit: 2000
+        limit: 5000
     },
 	doctrine : {
         name : "Doctrine",
@@ -27,7 +27,7 @@ var resourceMapping = {
         fps: 0,
         mult: 1,
         idle: 0,
-        limit: 10
+        limit: 50
     },
 	followers : {
         name : "Followers",
