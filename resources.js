@@ -14,7 +14,8 @@ var resourceMapping = {
         clickValue: 1,
         fps: 0,
         mult: 1,
-        idle: 0
+        idle: 0,
+        limit: 2000
     },
 	doctrine : {
         name : "Doctrine",
@@ -25,7 +26,8 @@ var resourceMapping = {
         clickValue: 1,
         fps: 0,
         mult: 1,
-        idle: 0
+        idle: 0,
+        limit: 10
     },
 	followers : {
         name : "Followers",
@@ -35,11 +37,12 @@ var resourceMapping = {
         costResource: "doctrine",
         clickValue: 1,
         creates: "devotion",
-        perTick: 0.1,
-        perTickMult: 1,
+        createsPerTick: 0.1,
+        createsPerTickMult: 1,
         fps: 0,
         mult: 1,
-        idle: 0
+        idle: 0,
+        limit: 5
     },
 	prisoners : {
         name : "Prisoners",
@@ -49,7 +52,8 @@ var resourceMapping = {
         clickValue: 1,
         fps: 0,
         mult: 1,
-        idle: 0        
+        idle: 0,
+        limit: 10
     },
 	property : {
         name : "Property",
@@ -59,7 +63,8 @@ var resourceMapping = {
         clickValue: 1,
         fps: 0,
         mult: 1,
-        idle: 0
+        idle: 0,
+        limit: 1
     }
 };
 

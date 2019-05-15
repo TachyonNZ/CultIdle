@@ -21,6 +21,7 @@ function searchAchieves(){
             switch (achievements[cheev].effect){
                 case "unhideMetric":
                     unhideMetric(achievements[cheev].effector);
+                    achievements[cheev].unlocked = true;
                     break;               
                 
                 case "none":
@@ -30,6 +31,8 @@ function searchAchieves(){
             cheev.effect;
             
         }
+        
+        if (achievements[cheev].unlocked){unhideMetric(achievements[cheev].effector)}
         
     }
     

@@ -13,6 +13,10 @@
 	<body>
 		<div class="header">
 			<div id="game-title" class="header-item">Cult 19</div>
+            <div>
+                <div class="header-item"><a onclick="save()" href="#">Save</a></div>
+                <div class="header-item"><a onclick="deleteSave()" href="#">Reset</a></div>
+            </div>
 		</div>
 
 		<div id="frame" class="noselect">
@@ -32,19 +36,19 @@
 				<table>
 					<tbody>
 						<tr id="label-devotion">
-                            <td>Devotion </td><td id="tracker-devotion"></td>
+                            <td>Devotion </td><td id="tracker-devotion"></td><td id="limit-devotion" class="limit"></td><td id="persec-devotion"></td>
 						</tr>
 						<tr id="label-doctrine" class="hidden">
-                            <td>Doctrine </td><td id="tracker-doctrine"></td>
+                            <td>Doctrine </td><td id="tracker-doctrine"></td><td id="limit-doctrine" class="limit"></td><td id="persec-doctrine"></td>
 						</tr>
 						<tr id="label-followers" class="hidden">
-                            <td>Followers </td><td id="tracker-followers"></td>
+                            <td>Followers </td><td id="tracker-followers"></td><td id="limit-followers" class="limit"></td><td id="persec-followers"></td>
 						</tr>
 						<tr id="label-prisoners" class="hidden">
-                            <td>Prisoners </td><td id="tracker-prisoners"></td>
+                            <td>Prisoners </td><td id="tracker-prisoners"></td><td id="limit-prisoners" class="limit"></td><td id="persec-prisoners"></td>
 						</tr>
 						<tr id="label-property" class="hidden">
-                            <td>Property </td><td id="tracker-property"></td>
+                            <td>Property </td><td id="tracker-property"></td><td id="limit-property" class="limit"></td><td id="persec-property"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -57,4 +61,5 @@
 <script type="text/javascript" src="resources.js"></script>
 <script type="text/javascript" src="achievements.js"></script>
 <script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="saveload.js"></script>
 
