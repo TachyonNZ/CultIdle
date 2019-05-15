@@ -14,8 +14,18 @@ body {
 	background-color: #200020;
 	border-bottom: 1px solid gold;
 	width: 100%;
+    display: flex;
+    justify-content: space-between;
 	
-	
+}
+
+.header-item {
+    display: inline;
+    color: white;
+}
+.header-item a{
+    color: white;
+    margin-right: 20px;
 }
 
 #game-title {
@@ -81,6 +91,8 @@ body {
 	width:100px;
 	
 }
+
+
 
 .column{
 	
@@ -157,6 +169,14 @@ body {
 }
 .button:hover {
 	background-color: #200020;	
+}
+
+.limit {
+    color: grey!important;
+}
+
+.limit-hit {
+    color: orange!important;
 }
 
 .devotionPip {
